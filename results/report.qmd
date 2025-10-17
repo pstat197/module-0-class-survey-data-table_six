@@ -27,7 +27,16 @@ Write a one-paragraph abstract summarizing what you did and your findings. It ne
 
 ## Data description
 
-Write a brief description of the dataset. Your description should cover how data were obtained, sample characteristics, and measurements taken. It does not need to be exhaustive, but sufficiently detailed to convey a clear high-level understanding of the dataset. You can utilize bullet points or tables if you feel it would help improve clarity.
+Data collection: The dataset comes from the PSTAT 197a capstone intake survey which was given to the capstone students via google forms due on September 30. Responses were exported to CSV and accessible on GitHub. The repo includes three files: (1) background-clean.csv - background and preparation; (2) interest-clean.csv - project interests and preferred programming language and (3) survey-metadata.csv - a data dictionary mapping variable names to survey sections and the original question text.
+
+**Sample:** Each record is one student and is keyed by response_id. We noticed 51-52 responses in total. when combining files, we join on response_id. This is a sample of enrolled capstone students (not UCSB as a whole). Some nonresponse is present because some students skipped individual questions.
+
+**Measurements.**
+• Proficiency and confidence: prog.prof, math.prof, and stat.prof are ordered proficiency categories (Beginner/Intermediate/Advanced). prog.comf, math.comf, and stat.comf are integer ratings of confidence
+• Coursework background: upper-division coursework into 0--2, 3--5, 6--8, and 9+; additional columns indicate specific courses taken
+• Prior experience: boolean indicator of prior research experience (Yes/No)
+• Interests and language preference: in interest-clean.csv, lang records preferred programming language (R, Python, or No preference), type indicates preferred project type (individual vs both), and dom/area capture broader domains and specific areas of interest (multi-select, stored as semicolon-separated strings).
+• Metadata: survey-metadata.csv has variable names, survey sections (personal/background/interest), and original question wording.
 
 ## Questions of interest
 

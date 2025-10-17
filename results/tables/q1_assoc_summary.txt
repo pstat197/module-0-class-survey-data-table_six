@@ -1,0 +1,2 @@
+Spearman rho (prog comfort ~ CS count): 0.265
+Spearman rho (stat comfort ~ PSTAT count): 0.308

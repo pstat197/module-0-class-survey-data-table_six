@@ -19,6 +19,7 @@ Use this as a template. Keep the headers and remove all other text. Overall, you
 ```{r}
 # load any other packages and read data here
 library(tidyverse)
+library(here)
 ```
 
 ## Executive summary
@@ -35,11 +36,85 @@ Data collection: The dataset comes from the PSTAT 197a capstone intake survey wh
 
 ## Questions of interest:
 
-We sought to understand how students’ academic preparation and background factors relate to their technical proficiency and language preferences. Specifically, our analysis addressed two key questions:
+We sought to understand how students' academic preparation and background factors relate to their technical proficiency and language preferences. Specifically, our analysis addressed two key questions:
 
 1.  How does prior coursework relate to self-assessed proficiency in programming, mathematics, and statistics?
 2.  What factors, such as major, prior experience, and confidence, appear to influence which programming languages students prefer or feel most comfortable using?
 
 ## Findings
 
-Summarize your results. Don't try to explain every step you took; focus instead on providing the main data analytic outputs -- tables and figures -- and explaining clearly what they show. Clarify any important decisions you made in obtaining them. You can display codes if you like but it is not necessary.
+#### **Q2:** What factors, such as major, prior experience, and confidence, appear to influence which programming languages students prefer or feel most comfortable using?
+
+Across all respondents, Python is the clear winner. From the bar chart:
+
+-   Python: \~61.5%
+
+-   No preference: \~21.2%
+
+-   R: \~17.3%
+
+Most students lean Python, while a smaller group prefers R and about one-fifth report no strong preference.
+
+```{r}
+knitr::include_graphics(
+  here("results", "fig", "q2_lang_overall.png")
+)
+```
+
+Interpretation: Python is the number one choice regardless of background
+
+#### Research experience (prior exposure)
+
+Language preferences vary by whether students report research experience (eg lab work):
+
+-   With research experience, the share preferring R rises (≈22%) and Python falls modestly (≈56%) relative to those without research experience (R ≈ 12%, Python ≈ 65%). "No preference" is similar (≈22--24%) across groups.
+
+```{r}
+knitr::include_graphics(
+  here("results", "fig", "q2_lang_by_research.png")
+)
+```
+
+Interpretation: Research exposure appears to broaden adoption of R (perhaps via specific coursework, faculty tooling, or data-analysis workflows common in labs). Python remains the majority choice in both groups, but research shifts some share toward R.
+
+#### Coursework & confidence
+
+#### (a) Descriptive relationship
+
+Plotting programming confidence vs. upper-division coursework bins (0--2, 3--5, 6--8, 9+) for each language shows:
+
+-   Confidence trends up slightly with more coursework for those preferring Python and R (gentle positive slopes).
+
+-   Students with no preference show a flat to slightly negative slope, with wide uncertainty, suggesting fewer strong signals.
+
+```{r}
+knitr::include_graphics(
+  here("results", "fig", "q2_conf_vs_coursework_by_lang.png")
+)
+```
+
+**Interpretation:** Advanced coursework is weakly associated with higher confidence, especially among students who already identify a preferred language. Lack of preference tends to be paired with lower and more variable confidence.
+
+#### (b) Modeled relationship (multinomial logit)
+
+A multinomial logistic regression predicting language preference (R vs. Python vs. No preference) from programming confidence and research experience (with an interaction) yields the predicted probabilities below. Confidence is shown on a 2--5 scale; panels split by research experience.
+
+```{r}
+knitr::include_graphics(
+  here("results", "fig", "q2_multinom_pred_probs.png")
+)
+```
+
+Confidence effect (holding research constant):
+
+-   Python: probability increases as confidence rises (≈ 55% → 68% without research; ≈ 53% → 64% with research).
+
+-   No preference: probability decreases as confidence rises (≈ 35% → 25% without research; ≈ 27% → 18% with research).
+
+-   R: probability is low and fairly flat without research (\~6--7%), but higher and nearly flat with research (\~17--19%).
+
+Research experience effect (holding confidence constant):
+
+-   Shifts probability from Python toward R across the confidence range.
+
+-   No-preference is modestly lower with research at higher confidence.

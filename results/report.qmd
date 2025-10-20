@@ -31,26 +31,14 @@ Data collection: The dataset comes from the PSTAT 197a capstone intake survey wh
 
 **Sample:** Each record is one student and is keyed by response_id. We noticed 51-52 responses in total. when combining files, we join on response_id. This is a sample of enrolled capstone students (not UCSB as a whole). Some nonresponse is present because some students skipped individual questions.
 
-**Measurements.**
-• Proficiency and confidence: prog.prof, math.prof, and stat.prof are ordered proficiency categories (Beginner/Intermediate/Advanced). prog.comf, math.comf, and stat.comf are integer ratings of confidence
-• Coursework background: upper-division coursework into 0--2, 3--5, 6--8, and 9+; additional columns indicate specific courses taken
-• Prior experience: boolean indicator of prior research experience (Yes/No)
-• Interests and language preference: in interest-clean.csv, lang records preferred programming language (R, Python, or No preference), type indicates preferred project type (individual vs both), and dom/area capture broader domains and specific areas of interest (multi-select, stored as semicolon-separated strings).
-• Metadata: survey-metadata.csv has variable names, survey sections (personal/background/interest), and original question wording.
+**Measurements.** • Proficiency and confidence: prog.prof, math.prof, and stat.prof are ordered proficiency categories (Beginner/Intermediate/Advanced). prog.comf, math.comf, and stat.comf are integer ratings of confidence • Coursework background: upper-division coursework into 0--2, 3--5, 6--8, and 9+; additional columns indicate specific courses taken • Prior experience: boolean indicator of prior research experience (Yes/No) • Interests and language preference: in interest-clean.csv, lang records preferred programming language (R, Python, or No preference), type indicates preferred project type (individual vs both), and dom/area capture broader domains and specific areas of interest (multi-select, stored as semicolon-separated strings). • Metadata: survey-metadata.csv has variable names, survey sections (personal/background/interest), and original question wording.
 
-## Questions of interest
+## Questions of interest:
 
-Indicate the questions your analysis addresses. These should map one-to-one to your findings. Don't include questions you didn't answer or questions you started with and refined later. If you would rather frame them as goals or tasks rather than questions that is okay; just modify the header appropriately. However you frame what you've done, you may only have two or three items; that is fine. Provide an itemized or numbered list so that the reader can easily identify your objectives.
+We sought to understand how students’ academic preparation and background factors relate to their technical proficiency and language preferences. Specifically, our analysis addressed two key questions:
 
-For example:
-
-> *We sought to understand the relationship between coursework preparation, self-assessed technical abilities, and comfort level with technical skills. We also sought to understand whether the relationships differed depending on having had prior research experience. Our analysis addressed three questions:*
->
-> 1.  *How should the coursework histories of students in the class be ordered from less preparation to extensive preparation?*
-> 2.  *Is coursework preparation associated with increased self-assessed technical skill and comfort within the sample?*
-> 3.  *Does prior research experience appear to be a substitute for coursework preparation with respect to self-assessed technical skill and comfort?*
-
-Notice that the questions are precise but not overly technical.
+1.  How does prior coursework relate to self-assessed proficiency in programming, mathematics, and statistics?
+2.  What factors, such as major, prior experience, and confidence, appear to influence which programming languages students prefer or feel most comfortable using?
 
 ## Findings
 

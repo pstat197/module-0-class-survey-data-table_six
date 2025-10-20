@@ -1,0 +1,29 @@
+
+Call:
+lm(formula = prog.comf ~ prog.prof + math.prof + stat.prof + 
+    rsrch + updv.num, data = background)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-1.82750 -0.41280 -0.04842  0.53002  1.75375 
+
+Coefficients: (1 not defined because of singularities)
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  3.54719    0.31319  11.326 3.36e-14 ***
+prog.prof.L  1.45542    0.75774   1.921   0.0617 .  
+prog.prof.Q -0.34024    0.43266  -0.786   0.4362    
+math.prof.L -0.63891    0.40965  -1.560   0.1265    
+math.prof.Q  0.12614    0.24862   0.507   0.6146    
+stat.prof.L -0.06616    0.39764  -0.166   0.8687    
+stat.prof.Q  0.21858    0.27912   0.783   0.4381    
+rsrchTRUE    0.28397    0.22760   1.248   0.2192    
+updv.num3-5 -0.28115    0.31069  -0.905   0.3708    
+updv.num6-8 -0.30240    0.25690  -1.177   0.2459    
+updv.num9+        NA         NA      NA       NA    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.7004 on 41 degrees of freedom
+Multiple R-squared:  0.2827,	Adjusted R-squared:  0.1253 
+F-statistic: 1.796 on 9 and 41 DF,  p-value: 0.09855
+

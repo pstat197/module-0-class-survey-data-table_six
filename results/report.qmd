@@ -14,8 +14,6 @@ execute:
   cache: true
 ---
 
-Use this as a template. Keep the headers and remove all other text. Overall, your report may be quite short. When it is complete, render and then push changes to your team repository.
-
 ```{r}
 # load any other packages and read data here
 library(tidyverse)
@@ -24,7 +22,7 @@ library(here)
 
 ## Executive summary
 
-Write a one-paragraph abstract summarizing what you did and your findings. It need not be comprehensive; try to highlight the most important or interesting outcomes.
+Using data from the PSTAT 197A Capstone intake survey, we examined how prior coursework and background experiences shape students’ self-assessed proficiency, confidence, and programming language preferences. Our findings show that UCSB’s technical coursework, particularly in Computer Science and Statistics appears effective in building students’ programming and quantitative readiness. Students with two or more CS or PSTAT courses report higher confidence and proficiency across all technical domains, suggesting that the curriculum scaffolds skills well as students advance. Python overwhelmingly dominates as the preferred language (≈61%), but students with prior research experience show a greater inclination toward R, reflecting how lab-based or data-driven projects influence tool choice. Taken together, these results suggest that UCSB’s coursework and research opportunities complement each other in cultivating both technical depth and tool diversity among data science students.
 
 ## Data description
 
@@ -42,6 +40,30 @@ We sought to understand how students' academic preparation and background factor
 2.  What factors, such as major, prior experience, and confidence, appear to influence which programming languages students prefer or feel most comfortable using?
 
 ## Findings
+
+#### **Q1:** How does prior coursework relate to self-assessed proficiency in programming, mathematics, and statistics?
+
+Our analysis examined how prior coursework in Computer Science (CS) and Statistics (PSTAT) relates to students’ self-assessed proficiency and comfort across programming, math, and statistical skills. Four main figures summarize these relationships.
+
+![](images/clipboard-4538303.png){width="435"}
+
+Figure 1 shows that programming proficiency tends to increase with more prior CS coursework. Among students with no prior CS courses, most rated themselves as beginner or intermediate. In contrast, those who had taken two or more CS courses showed a higher proportion of advanced proficiency responses. This suggests that greater exposure to formal CS instruction correlates with higher self-assessed skill levels.
+
+![](images/clipboard-4240590703.png){width="341"}
+
+As shown in Figure 2, programming comfort (on a 1–5 scale) also rises with the number of CS courses taken. Students with two or more courses reported both higher medians and less variation in comfort levels compared to those with none or one course.
+
+![](images/clipboard-1997007205.png){width="444"}
+
+Figure 3 presents a similar pattern for statistics: students with two or more PSTAT courses were much more likely to rate their proficiency as intermediate or advanced compared to those with fewer courses. This again highlights that prior coursework strongly predicts perceived competence in quantitative subjects.
+
+![](images/clipboard-458804387.png){width="469"}
+
+Finally, Figure 4 shows a modest positive relationship between total prior technical coursework (CS, PSTAT, ECON, etc.) and programming comfort. The upward slope indicates that students who have completed more technical classes, regardless of the department, tend to feel more confident in programming.
+
+To make patterns clearer, coursework counts were grouped into bins (0, 1, and 2 or more courses) to reduce noise from outliers and small sample sizes. Comfort was measured on a standardized 1–5 scale, and proficiency levels were coded as beginner, intermediate, and advanced for consistency across subjects.
+
+Across all measures, prior coursework, especially in CS and PSTAT, shows a clear and consistent relationship with both technical proficiency and comfort. Students with more exposure to these subjects report higher skill levels and greater confidence, underscoring the importance of cumulative coursework in building technical readiness.
 
 #### **Q2:** What factors, such as major, prior experience, and confidence, appear to influence which programming languages students prefer or feel most comfortable using?
 

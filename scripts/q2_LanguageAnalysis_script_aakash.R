@@ -251,3 +251,75 @@ message("Advanced analysis complete. Figures saved:",
         "\n - results/fig/q2_conf_vs_coursework_by_lang.png",
         "\n - results/fig/q2_multinom_pred_probs.png",
         "\nOdds ratios table: results/tables/q2_multinom_odds_ratios.csv")
+
+
+
+library(ggplot2)
+library(dplyr)
+library(readr)
+
+
+interest <- read_csv("/Users/achalshah/Downloads/interest-clean (1).csv")
+background <- read_csv("/Users/achalshah/Downloads/background-clean (1).csv")
+
+merged <- inner_join(interest, background, by = "response_id")
+
+merged <- merged %>%
+  mutate(
+    lang = factor(lang, levels = c("R", "Python")),
+    updv.num = factor(updv.num, levels = c("0-2", "3-5", "6-8", "9+"))
+  )
+
+ggplot(merged, aes(x = updv.num, fill = lang)) +
+  geom_bar(position = "fill", color = "white") +
+  scale_y_continuous(labels = scales::percent_format()) +
+  scale_fill_manual(values = c("#1F78B4", "#33A02C")) +
+  labs(
+    title = "Language Preference by Upper-Division Coursework",
+    subtitle = "Proportion of students preferring R vs Python across levels of upper-division course experience",
+    x = "Number of Upper-Division Courses Taken",
+    y = "Proportion of Students",
+    fill = "Language Preference"
+  ) +
+  theme_minimal(base_size = 14) +
+  theme(
+    plot.title = element_text(face = "bold", size = 16),
+    plot.subtitle = element_text(color = "gray30"),
+    legend.position = "top"
+  )
+
+
+
+library(ggplot2)
+library(dplyr)
+library(readr)
+
+interest <- read_csv("/Users/achalshah/Downloads/interest-clean (1).csv")
+background <- read_csv("/Users/achalshah/Downloads/background-clean (1).csv")
+
+merged <- inner_join(interest, background, by = "response_id")
+
+merged <- merged %>%
+  mutate(
+    lang = factor(lang, levels = c("R", "Python")),
+    prog.comf = as.numeric(prog.comf)
+  )
+
+ggplot(merged, aes(x = lang, y = prog.comf, fill = lang)) +
+  geom_violin(trim = FALSE, alpha = 0.5) +
+  geom_boxplot(width = 0.15, outlier.shape = NA, color = "black") +
+  scale_fill_manual(values = c("#1F78B4", "#33A02C")) +
+  labs(
+    title = "Programming Confidence Across Language Preference",
+    subtitle = "Distribution of self-reported programming confidence by primary language preference",
+    x = "Language Preference",
+    y = "Programming Confidence (1–5 scale)",
+    fill = "Language"
+  ) +
+  theme_minimal(base_size = 14) +
+  theme(
+    plot.title = element_text(face = "bold", size = 16),
+    plot.subtitle = element_text(color = "gray30"),
+    legend.position = "none"
+  )
+

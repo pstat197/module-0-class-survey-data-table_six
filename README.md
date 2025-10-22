@@ -1,6 +1,6 @@
 # module0-class-survey
 
-This is a template repository for a group assignment to produce a descriptive analysis of class survey data.
+This is a template repository for a group assignment to produce a descriptive analysis of class survey data.  Modified by Oli. 
 
 Repository contents:
 
